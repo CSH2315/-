@@ -84,7 +84,7 @@ void loop() {
   } else if (dist_ema > _TARGET_HIGH) {
     myservo.writeMicroseconds(_DUTY_MAX);
   } else {
-    myservo.writeMicroseconds(_DUTY_NEU);
+    myservo.writeMicroseconds(_DUTY_MIN + ((_DUTY_MAX - _DUTY_MIN)/180)*((dist_ema - _DIST_MIN)*180/40));
   }
   // Use _TARGET_LOW, _TARGTE_HIGH
 
